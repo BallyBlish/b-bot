@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>B-bot 官方介紹網站</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome 圖示 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap');
+        body {
+            font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+            background-color: #09090b;
+            color: #f4f4f5;
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col justify-between selection:bg-zinc-800 selection:text-zinc-100">
+
+    <!-- 導覽列 -->
+    <nav class="border-b border-zinc-800/80 bg-zinc-950/80 backdrop-blur-md fixed w-full top-0 z-50">
+        <div class="max-w-5xl mx-auto px-6 h-16 flex items-center justify-between">
+            <div class="flex items-center space-x-3">
+                <div class="w-9 h-9 rounded-lg bg-zinc-100 flex items-center justify-center font-bold text-lg text-zinc-950">
+                    B
+                </div>
+                <span class="font-bold text-lg tracking-tight text-zinc-100">B-bot</span>
+            </div>
+            <!-- Firebase 線上狀態指示燈 -->
+            <div id="status-badge" class="flex items-center space-x-2 bg-zinc-900 px-3 py-1.5 rounded-full border border-zinc-800">
+                <span class="relative flex h-2 w-2">
+                    <span id="status-ping" class="animate-ping absolute inline-flex h-full w-full rounded-full bg-zinc-400 opacity-75"></span>
+                    <span id="status-dot" class="relative inline-flex rounded-full h-2 w-2 bg-zinc-500"></span>
+                </span>
+                <span id="status-text" class="text-xs font-medium text-zinc-400">狀態連線中...</span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero 主視覺區塊 -->
+    <header class="pt-32 pb-16 px-6 text-center max-w-3xl mx-auto">
+        <div class="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-zinc-900 border border-zinc-800 text-zinc-300 text-xs font-medium mb-6">
+            <i class="fa-solid fa-sparkles text-zinc-400"></i>
+            <span>搭載強大多模態 AI 核心</span>
+        </div>
+        <h1 class="text-4xl sm:text-5xl font-bold tracking-tight text-zinc-100 mb-6 leading-tight">
+            極速、聰明、具備真性情的 <br>
+            <span class="text-zinc-400">Discord 智慧機器人</span>
+        </h1>
+        <p class="text-zinc-400 text-base sm:text-lg max-w-2xl mx-auto mb-8 leading-relaxed">
+            能即時生成 HTML5 互動遊戲、辨識圖像細節、具備獨特人格特質，還支援專屬私訊互動機制！
+        </p>
+        <div class="flex flex-wrap justify-center gap-3">
+            <a href="https://ballyblish.github.io/b-bot-game/" target="_blank" class="px-5 py-2.5 rounded-lg bg-zinc-100 hover:bg-white text-zinc-950 font-semibold text-sm transition-all flex items-center space-x-2">
+                <i class="fa-solid fa-gamepad"></i>
+                <span>遊玩 AI 生成遊戲</span>
+            </a>
+            <a href="https://ballyblish.github.io/bot-logs/" target="_blank" class="px-5 py-2.5 rounded-lg bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 text-zinc-200 font-semibold text-sm transition-all flex items-center space-x-2">
+                <i class="fa-solid fa-server text-zinc-400"></i>
+                <span>查看機器人完整狀態</span>
+            </a>
+            <a href="#commands" class="px-5 py-2.5 rounded-lg bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 text-zinc-400 hover:text-zinc-200 font-semibold text-sm transition-all flex items-center space-x-2">
+                <i class="fa-solid fa-terminal text-zinc-400"></i>
+                <span>指令列表</span>
+            </a>
+        </div>
+    </header>
+
+    <main class="max-w-5xl mx-auto px-6 space-y-20 mb-20">
+
+        <!-- 核心亮點 -->
+        <section class="grid md:grid-cols-3 gap-5">
+            <div class="p-6 rounded-xl bg-zinc-900/40 border border-zinc-800/80 hover:border-zinc-700 transition-all flex flex-col justify-between space-y-4">
+                <div>
+                    <div class="w-10 h-10 rounded-lg bg-zinc-800/60 text-zinc-200 flex items-center justify-center text-lg mb-4">
+                        <i class="fa-solid fa-code"></i>
+                    </div>
+                    <h3 class="text-base font-bold text-zinc-100 mb-2">AI 遊戲實時生成</h3>
+                    <p class="text-zinc-400 text-xs leading-relaxed">輸入指令即可觸發 AI 自動撰寫全套 HTML5/JS 輕量遊戲，並發布至網頁立即遊玩。</p>
+                </div>
+                <a href="https://ballyblish.github.io/b-bot-game/" target="_blank" class="inline-flex items-center space-x-2 text-xs font-semibold text-zinc-300 hover:text-white transition-colors pt-2">
+                    <span>開啟遊戲頁面</span>
+                    <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                </a>
+            </div>
+            <div class="p-6 rounded-xl bg-zinc-900/40 border border-zinc-800/80 hover:border-zinc-700 transition-all space-y-4">
+                <div class="w-10 h-10 rounded-lg bg-zinc-800/60 text-zinc-200 flex items-center justify-center text-lg mb-4">
+                    <i class="fa-solid fa-eye"></i>
+                </div>
+                <h3 class="text-base font-bold text-zinc-100 mb-2">多模態視覺讀取</h3>
+                <p class="text-zinc-400 text-xs leading-relaxed">支援直接上傳圖片，機器人將自動進行圖像分析並精準提取重點資訊進行交流。</p>
+            </div>
+            <div class="p-6 rounded-xl bg-zinc-900/40 border border-zinc-800/80 hover:border-zinc-700 transition-all space-y-4">
+                <div class="w-10 h-10 rounded-lg bg-zinc-800/60 text-zinc-200 flex items-center justify-center text-lg mb-4">
+                    <i class="fa-solid fa-mask"></i>
+                </div>
+                <h3 class="text-base font-bold text-zinc-100 mb-2">真實人格與記憶重置</h3>
+                <p class="text-zinc-400 text-xs leading-relaxed">具備人性化的對話風格，並提供靈活的記憶清理與管理者指令權限管理。</p>
+            </div>
+        </section>
+
+        <!-- 指令清單區塊 -->
+        <section id="commands" class="space-y-6">
+            <div class="border-l-2 border-zinc-500 pl-4">
+                <h2 class="text-xl font-bold text-zinc-100">指令指南</h2>
+                <p class="text-zinc-400 text-xs">在 Discord 指定頻道或私訊輸入以下指令即可與 B-bot 互動</p>
+            </div>
+
+            <div class="grid sm:grid-cols-2 gap-3">
+                <!-- 對話與圖文辨識 -->
+                <div class="p-4 rounded-xl bg-zinc-900/60 border border-zinc-800/80 hover:border-zinc-700 transition-all flex items-start space-x-3.5">
+                    <div class="mt-0.5 text-zinc-400 text-sm">
+                        <i class="fa-solid fa-comment-dots"></i>
+                    </div>
+                    <div>
+                        <div class="flex items-center space-x-2">
+                            <code class="px-2 py-0.5 bg-zinc-950 text-zinc-200 rounded font-mono text-xs border border-zinc-800">! [對話內容]</code>
+                        </div>
+                        <div class="font-semibold text-zinc-200 text-xs mt-1.5">日常對話與視覺辨識</div>
+                        <div class="text-[11px] text-zinc-400 mt-0.5 leading-normal">與 AI 進行日常聊天；若附帶上傳圖片，將會自動讀取圖片細節內容。</div>
+                    </div>
+                </div>
+
+                <!-- 生成遊戲 -->
+                <div class="p-4 rounded-xl bg-zinc-900/60 border border-zinc-800/80 hover:border-zinc-700 transition-all flex items-start space-x-3.5">
+                    <div class="mt-0.5 text-zinc-400 text-sm">
+                        <i class="fa-solid fa-gamepad"></i>
+                    </div>
+                    <div>
+                        <div class="flex items-center space-x-2">
+                            <code class="px-2 py-0.5 bg-zinc-950 text-zinc-200 rounded font-mono text-xs border border-zinc-800">B-bot玩遊戲 [主題]</code>
+                        </div>
+                        <div class="font-semibold text-zinc-200 text-xs mt-1.5">觸發 AI 生成小遊戲</div>
+                        <div class="text-[11px] text-zinc-400 mt-0.5 leading-normal">現場撰寫全套 HTML5 遊戲，並自動布署發布至線上遊戲頁面。</div>
+                    </div>
+                </div>
+
+                <!-- 重置記憶 -->
+                <div class="p-4 rounded-xl bg-zinc-900/60 border border-zinc-800/80 hover:border-zinc-700 transition-all flex items-start space-x-3.5">
+                    <div class="mt-0.5 text-zinc-400 text-sm">
+                        <i class="fa-solid fa-rotate-left"></i>
+                    </div>
+                    <div>
+                        <div class="flex items-center space-x-2">
+                            <code class="px-2 py-0.5 bg-zinc-950 text-zinc-200 rounded font-mono text-xs border border-zinc-800">B-bot重置記憶</code>
+                        </div>
+                        <div class="font-semibold text-zinc-200 text-xs mt-1.5">對話記憶清空</div>
+                        <div class="text-[11px] text-zinc-400 mt-0.5 leading-normal">清除當前對話上下文歷史紀錄，讓機器人還原至初始對話狀態。</div>
+                    </div>
+                </div>
+
+                <!-- 刪除 Log 紀錄 -->
+                <div class="p-4 rounded-xl bg-zinc-900/60 border border-zinc-800/80 hover:border-zinc-700 transition-all flex items-start space-x-3.5">
+                    <div class="mt-0.5 text-zinc-400 text-sm">
+                        <i class="fa-solid fa-trash-can"></i>
+                    </div>
+                    <div>
+                        <div class="flex items-center space-x-2">
+                            <code class="px-2 py-0.5 bg-zinc-950 text-zinc-200 rounded font-mono text-xs border border-zinc-800">B-bot刪除log</code>
+                            <span class="text-[10px] px-1.5 py-0.2 rounded bg-zinc-800 text-zinc-400 font-medium">管理員</span>
+                        </div>
+                        <div class="font-semibold text-zinc-200 text-xs mt-1.5">清除 Log 紀錄</div>
+                        <div class="text-[11px] text-zinc-400 mt-0.5 leading-normal">快速清除伺服器上記錄的運行與對話 Log 檔案，確保資料潔淨。</div>
+                    </div>
+                </div>
+
+                <!-- 私訊互動 -->
+                <div class="p-4 rounded-xl bg-zinc-900/60 border border-zinc-800/80 hover:border-zinc-700 transition-all flex items-start space-x-3.5">
+                    <div class="mt-0.5 text-zinc-400 text-sm">
+                        <i class="fa-solid fa-paper-plane"></i>
+                    </div>
+                    <div>
+                        <div class="flex items-center space-x-2">
+                            <code class="px-2 py-0.5 bg-zinc-950 text-zinc-200 rounded font-mono text-xs border border-zinc-800">B-bot說... [內容]</code>
+                        </div>
+                        <div class="font-semibold text-zinc-200 text-xs mt-1.5">開發者私訊控制</div>
+                        <div class="text-[11px] text-zinc-400 mt-0.5 leading-normal">開發者私訊模組，可透過機器人在指定頻道轉發訊息。</div>
+                    </div>
+                </div>
+
+                <!-- 機器人關機 -->
+                <div class="p-4 rounded-xl bg-zinc-900/60 border border-zinc-800/80 hover:border-zinc-700 transition-all flex items-start space-x-3.5">
+                    <div class="mt-0.5 text-zinc-400 text-sm">
+                        <i class="fa-solid fa-power-off"></i>
+                    </div>
+                    <div>
+                        <div class="flex items-center space-x-2">
+                            <code class="px-2 py-0.5 bg-zinc-950 text-zinc-200 rounded font-mono text-xs border border-zinc-800">B-bot去睡覺</code>
+                            <span class="text-[10px] px-1.5 py-0.2 rounded bg-zinc-800 text-zinc-400 font-medium">管理員</span>
+                        </div>
+                        <div class="font-semibold text-zinc-200 text-xs mt-1.5">安全離線關機</div>
+                        <div class="text-[11px] text-zinc-400 mt-0.5 leading-normal">更新雲端資料庫狀態為離線並讓機器人進入關機睡眠狀態。</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 更新日誌 (Changelog) -->
+        <section class="space-y-6">
+            <div class="border-l-2 border-zinc-500 pl-4">
+                <h2 class="text-xl font-bold text-zinc-100">更新日誌</h2>
+                <p class="text-zinc-400 text-xs">B-bot 的演進歷史與版本紀錄</p>
+            </div>
+
+            <div class="relative border-l border-zinc-800 ml-4 pl-6 space-y-6">
+                <!-- 第八代 -->
+                <div class="relative">
+                    <span class="absolute -left-[31px] top-1.5 w-2.5 h-2.5 rounded-full bg-zinc-100 ring-4 ring-zinc-950"></span>
+                    <h4 class="font-bold text-zinc-100 text-sm">第八代</h4>
+                    <p class="text-zinc-400 text-xs mt-0.5">全面升級核心架構，大幅提升機器人反應速度與對話穩定性。</p>
+                </div>
+
+                <!-- 第七代 -->
+                <div class="relative">
+                    <span class="absolute -left-[31px] top-1.5 w-2.5 h-2.5 rounded-full bg-zinc-700"></span>
+                    <h4 class="font-semibold text-zinc-300 text-sm">第七代</h4>
+                    <p class="text-zinc-400 text-xs mt-0.5">加入多模態支援，可以讀取與分析圖片。</p>
+                </div>
+
+                <!-- 第六代 -->
+                <div class="relative">
+                    <span class="absolute -left-[31px] top-1.5 w-2.5 h-2.5 rounded-full bg-zinc-700"></span>
+                    <h4 class="font-semibold text-zinc-300 text-sm">第六代</h4>
+                    <p class="text-zinc-400 text-xs mt-0.5">優化 Prompt 系統，注入更加真實的人格特質。</p>
+                </div>
+
+                <!-- 第五代 -->
+                <div class="relative">
+                    <span class="absolute -left-[31px] top-1.5 w-2.5 h-2.5 rounded-full bg-zinc-700"></span>
+                    <h4 class="font-semibold text-zinc-300 text-sm">第五代</h4>
+                    <p class="text-zinc-400 text-xs mt-0.5">加入遊戲模式，可使用 <code class="text-zinc-300 bg-zinc-900 px-1 py-0.5 rounded border border-zinc-800">B-bot玩遊戲</code> 來遊玩 AI 製作的遊戲。</p>
+                </div>
+
+                <!-- 第四代 -->
+                <div class="relative">
+                    <span class="absolute -left-[31px] top-1.5 w-2.5 h-2.5 rounded-full bg-zinc-700"></span>
+                    <h4 class="font-semibold text-zinc-300 text-sm">第四代</h4>
+                    <p class="text-zinc-400 text-xs mt-0.5">開發者私訊控制模組（包含 <code class="text-zinc-300 bg-zinc-900 px-1 py-0.5 rounded border border-zinc-800">B-bot說...</code> 與私訊關機）。</p>
+                </div>
+
+                <!-- 第三代 -->
+                <div class="relative">
+                    <span class="absolute -left-[31px] top-1.5 w-2.5 h-2.5 rounded-full bg-zinc-700"></span>
+                    <h4 class="font-semibold text-zinc-300 text-sm">第三代</h4>
+                    <p class="text-zinc-400 text-xs mt-0.5">開放特殊私訊版本，支援直接私訊 B-bot 進行交流。</p>
+                </div>
+
+                <!-- 第二代 -->
+                <div class="relative">
+                    <span class="absolute -left-[31px] top-1.5 w-2.5 h-2.5 rounded-full bg-zinc-700"></span>
+                    <h4 class="font-semibold text-zinc-300 text-sm">第二代</h4>
+                    <p class="text-zinc-400 text-xs mt-0.5">擴充核心指令：<code class="text-zinc-300 bg-zinc-900 px-1 py-0.5 rounded border border-zinc-800">B-bot去睡覺</code>、<code class="text-zinc-300 bg-zinc-900 px-1 py-0.5 rounded border border-zinc-800">B-bot重置記憶</code>、<code class="text-zinc-300 bg-zinc-900 px-1 py-0.5 rounded border border-zinc-800">B-bot自我介紹</code>。</p>
+                </div>
+
+                <!-- 第一代 -->
+                <div class="relative">
+                    <span class="absolute -left-[31px] top-1.5 w-2.5 h-2.5 rounded-full bg-zinc-700"></span>
+                    <h4 class="font-semibold text-zinc-300 text-sm">第一代</h4>
+                    <p class="text-zinc-400 text-xs mt-0.5">正式上線版本，開放社群聊天。</p>
+                </div>
+
+                <!-- 測試版 -->
+                <div class="relative">
+                    <span class="absolute -left-[31px] top-1.5 w-2.5 h-2.5 rounded-full bg-zinc-800"></span>
+                    <h4 class="font-medium text-zinc-400 text-sm">測試版</h4>
+                    <p class="text-zinc-500 text-xs mt-0.5">測試 Generative Artificial Intelligence 基本功能。</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 團隊資訊區塊 -->
+        <section class="p-6 rounded-xl bg-zinc-900/40 border border-zinc-800/80">
+            <div class="flex flex-wrap justify-between items-center gap-4 text-xs">
+                <div>
+                    <span class="text-zinc-500 block text-[11px]">專案建立時間</span>
+                    <span class="font-medium text-zinc-300">2026.05.15</span>
+                </div>
+                <div class="flex items-center space-x-6">
+                    <div>
+                        <span class="text-zinc-500 block text-[11px]">創作者</span>
+                        <span class="font-semibold text-zinc-200">Bally (Blish Noob)</span>
+                    </div>
+                    <div class="h-6 w-px bg-zinc-800"></div>
+                    <div>
+                        <span class="text-zinc-500 block text-[11px]">測試員</span>
+                        <span class="font-semibold text-zinc-200">Ethan</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- 頁尾 -->
+    <footer class="border-t border-zinc-800/80 py-6 text-center text-xs text-zinc-500">
+        <p>© 2026 B-bot Project. Created by Bally. All rights reserved.</p>
+    </footer>
+
+    <!-- Firebase 即時狀態連線腳本 -->
+    <script>
+        const DB_URL = "https://b-bot-website-default-rtdb.asia-southeast1.firebasedatabase.app/status.json";
+
+        async function fetchBotStatus() {
+            const dot = document.getElementById("status-dot");
+            const ping = document.getElementById("status-ping");
+            const text = document.getElementById("status-text");
+
+            try {
+                const response = await fetch(DB_URL);
+                if (!response.ok) throw new Error("Network error");
+                const data = await response.json();
+
+                if (data && data.status === "online") {
+                    dot.className = "relative inline-flex rounded-full h-2 w-2 bg-emerald-500";
+                    ping.className = "animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75";
+                    text.textContent = "線上運作中";
+                    text.className = "text-xs font-medium text-emerald-400";
+                } else {
+                    dot.className = "relative inline-flex rounded-full h-2 w-2 bg-rose-500";
+                    ping.className = "hidden";
+                    text.textContent = "離線 / 睡眠中";
+                    text.className = "text-xs font-medium text-rose-400";
+                }
+            } catch (err) {
+                dot.className = "relative inline-flex rounded-full h-2 w-2 bg-zinc-500";
+                ping.className = "hidden";
+                text.textContent = "無法取得狀態";
+                text.className = "text-xs font-medium text-zinc-400";
+            }
+        }
+
+        fetchBotStatus();
+        setInterval(fetchBotStatus, 10000);
+    </script>
+</body>
+</html>
