@@ -40,8 +40,8 @@
     </nav>
 
     <!-- Hero 主視覺區塊 -->
-    <header class="pt-28 pb-16 px-6 max-w-5xl mx-auto">
-        <div class="grid md:grid-cols-12 gap-8 items-center">
+    <header class="pt-28 pb-16 px-6 max-w-5xl mx-auto w-full">
+        <div class="grid md:grid-cols-12 gap-8 items-center w-full">
             
             <!-- 左側：標題與按鈕區塊 -->
             <div class="md:col-span-7 text-center md:text-left">
@@ -49,23 +49,23 @@
                     <i class="fa-solid fa-sparkles text-zinc-400"></i>
                     <span>搭載強大多模態 AI 核心</span>
                 </div>
-                <h1 class="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-zinc-100 mb-6 leading-tight">
-                    聰明、具備真性情的 <br>
-                    <span class="text-zinc-400">Discord 智慧機器人</span>
+                <h1 class="text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight text-zinc-100 mb-6 leading-tight">
+                    極速、聰明、具備真性情的 <br>
+                    <span class="block text-lg sm:text-xl lg:text-2xl text-zinc-400 font-medium mt-2">Discord 智慧機器人</span>
                 </h1>
                 <p class="text-zinc-400 text-sm sm:text-base max-w-xl mb-8 leading-relaxed mx-auto md:mx-0">
                     能即時生成 HTML5 互動遊戲、辨識圖像細節、具備獨特人格特質！
                 </p>
-                <div class="flex flex-wrap justify-center md:justify-start gap-3">
-                    <a href="https://ballyblish.github.io/b-bot-game/" target="_blank" class="px-5 py-2.5 rounded-lg bg-zinc-100 hover:bg-white text-zinc-950 font-semibold text-sm transition-all flex items-center space-x-2">
+                <div class="flex flex-wrap justify-center md:justify-start gap-2.5">
+                    <a href="https://ballyblish.github.io/b-bot-game/" target="_blank" class="px-4 py-2 rounded-lg bg-zinc-100 hover:bg-white text-zinc-950 font-semibold text-xs sm:text-sm transition-all flex items-center space-x-2 shrink-0">
                         <i class="fa-solid fa-gamepad"></i>
                         <span>遊玩 AI 生成遊戲</span>
                     </a>
-                    <a href="https://ballyblish.github.io/bot-logs/" target="_blank" class="px-5 py-2.5 rounded-lg bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 text-zinc-200 font-semibold text-sm transition-all flex items-center space-x-2">
+                    <a href="https://ballyblish.github.io/bot-logs/" target="_blank" class="px-4 py-2 rounded-lg bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 text-zinc-200 font-semibold text-xs sm:text-sm transition-all flex items-center space-x-2 shrink-0">
                         <i class="fa-solid fa-server text-zinc-400"></i>
                         <span>查看機器人完整狀態</span>
                     </a>
-                    <a href="#commands" class="px-5 py-2.5 rounded-lg bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 text-zinc-400 hover:text-zinc-200 font-semibold text-sm transition-all flex items-center space-x-2">
+                    <a href="#commands" class="px-4 py-2 rounded-lg bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 text-zinc-400 hover:text-zinc-200 font-semibold text-xs sm:text-sm transition-all flex items-center space-x-2 shrink-0">
                         <i class="fa-solid fa-terminal text-zinc-400"></i>
                         <span>指令列表</span>
                     </a>
@@ -73,7 +73,7 @@
             </div>
 
             <!-- 右側：1:1 正方形圖片展示區塊 -->
-            <div class="md:col-span-5 flex justify-center">
+            <div class="md:col-span-5 flex justify-center md:justify-end">
                 <div class="w-60 h-60 sm:w-72 sm:h-72 lg:w-80 lg:h-80 rounded-2xl bg-zinc-900/60 border border-zinc-800/80 p-2 shadow-2xl shrink-0">
                     <img src="b-bot-preview.png" alt="B-bot 展示圖" class="w-full h-full rounded-xl object-cover" onerror="this.onerror=null; this.src='https://placehold.co/600x600/18181b/a1a1aa?text=B-bot+Preview';">
                 </div>
@@ -214,66 +214,66 @@
                 <p class="text-zinc-400 text-xs">B-bot 的演進歷史與版本紀錄</p>
             </div>
 
-            <div class="relative border-l border-zinc-800 ml-4 pl-6 space-y-6">
+            <div class="space-y-5">
                 <!-- 第八代 -->
-                <div class="relative">
-                    <span class="absolute -left-[31px] top-1.5 w-2.5 h-2.5 rounded-full bg-zinc-100 ring-4 ring-zinc-950"></span>
+                <div class="relative pl-5">
+                    <span class="absolute left-0 top-1.5 w-2 h-2 rounded-full bg-zinc-100"></span>
                     <h4 class="font-bold text-zinc-100 text-sm">第八代</h4>
                     <p class="text-zinc-400 text-xs mt-0.5">全面升級核心架構，大幅提升機器人反應速度與對話穩定性。</p>
                 </div>
 
                 <!-- 第七代 -->
-                <div class="relative">
-                    <span class="absolute -left-[31px] top-1.5 w-2.5 h-2.5 rounded-full bg-zinc-700"></span>
+                <div class="relative pl-5">
+                    <span class="absolute left-0 top-1.5 w-2 h-2 rounded-full bg-zinc-600"></span>
                     <h4 class="font-semibold text-zinc-300 text-sm">第七代</h4>
                     <p class="text-zinc-400 text-xs mt-0.5">加入多模態支援，可以讀取與分析圖片。</p>
                 </div>
 
                 <!-- 第六代 -->
-                <div class="relative">
-                    <span class="absolute -left-[31px] top-1.5 w-2.5 h-2.5 rounded-full bg-zinc-700"></span>
+                <div class="relative pl-5">
+                    <span class="absolute left-0 top-1.5 w-2 h-2 rounded-full bg-zinc-600"></span>
                     <h4 class="font-semibold text-zinc-300 text-sm">第六代</h4>
                     <p class="text-zinc-400 text-xs mt-0.5">優化 Prompt 系統，注入更加真實的人格特質。</p>
                 </div>
 
                 <!-- 第五代 -->
-                <div class="relative">
-                    <span class="absolute -left-[31px] top-1.5 w-2.5 h-2.5 rounded-full bg-zinc-700"></span>
+                <div class="relative pl-5">
+                    <span class="absolute left-0 top-1.5 w-2 h-2 rounded-full bg-zinc-600"></span>
                     <h4 class="font-semibold text-zinc-300 text-sm">第五代</h4>
                     <p class="text-zinc-400 text-xs mt-0.5">加入遊戲模式，可使用 <code class="text-zinc-300 bg-zinc-900 px-1 py-0.5 rounded border border-zinc-800">B-bot玩遊戲</code> 來遊玩 AI 製作的遊戲。</p>
                 </div>
 
                 <!-- 第四代 -->
-                <div class="relative">
-                    <span class="absolute -left-[31px] top-1.5 w-2.5 h-2.5 rounded-full bg-zinc-700"></span>
+                <div class="relative pl-5">
+                    <span class="absolute left-0 top-1.5 w-2 h-2 rounded-full bg-zinc-600"></span>
                     <h4 class="font-semibold text-zinc-300 text-sm">第四代</h4>
                     <p class="text-zinc-400 text-xs mt-0.5">開發者私訊控制模組（包含 <code class="text-zinc-300 bg-zinc-900 px-1 py-0.5 rounded border border-zinc-800">B-bot說...</code> 與私訊關機）。</p>
                 </div>
 
                 <!-- 第三代 -->
-                <div class="relative">
-                    <span class="absolute -left-[31px] top-1.5 w-2.5 h-2.5 rounded-full bg-zinc-700"></span>
+                <div class="relative pl-5">
+                    <span class="absolute left-0 top-1.5 w-2 h-2 rounded-full bg-zinc-600"></span>
                     <h4 class="font-semibold text-zinc-300 text-sm">第三代</h4>
                     <p class="text-zinc-400 text-xs mt-0.5">開放特殊私訊版本，支援直接私訊 B-bot 進行交流。</p>
                 </div>
 
                 <!-- 第二代 -->
-                <div class="relative">
-                    <span class="absolute -left-[31px] top-1.5 w-2.5 h-2.5 rounded-full bg-zinc-700"></span>
+                <div class="relative pl-5">
+                    <span class="absolute left-0 top-1.5 w-2 h-2 rounded-full bg-zinc-600"></span>
                     <h4 class="font-semibold text-zinc-300 text-sm">第二代</h4>
                     <p class="text-zinc-400 text-xs mt-0.5">擴充核心指令：<code class="text-zinc-300 bg-zinc-900 px-1 py-0.5 rounded border border-zinc-800">B-bot去睡覺</code>、<code class="text-zinc-300 bg-zinc-900 px-1 py-0.5 rounded border border-zinc-800">B-bot重置記憶</code>、<code class="text-zinc-300 bg-zinc-900 px-1 py-0.5 rounded border border-zinc-800">B-bot自我介紹</code>。</p>
                 </div>
 
                 <!-- 第一代 -->
-                <div class="relative">
-                    <span class="absolute -left-[31px] top-1.5 w-2.5 h-2.5 rounded-full bg-zinc-700"></span>
+                <div class="relative pl-5">
+                    <span class="absolute left-0 top-1.5 w-2 h-2 rounded-full bg-zinc-600"></span>
                     <h4 class="font-semibold text-zinc-300 text-sm">第一代</h4>
                     <p class="text-zinc-400 text-xs mt-0.5">正式上線版本，開放社群聊天。</p>
                 </div>
 
                 <!-- 測試版 -->
-                <div class="relative">
-                    <span class="absolute -left-[31px] top-1.5 w-2.5 h-2.5 rounded-full bg-zinc-800"></span>
+                <div class="relative pl-5">
+                    <span class="absolute left-0 top-1.5 w-2 h-2 rounded-full bg-zinc-700"></span>
                     <h4 class="font-medium text-zinc-400 text-sm">測試版</h4>
                     <p class="text-zinc-500 text-xs mt-0.5">測試 Generative Artificial Intelligence 基本功能。</p>
                 </div>
